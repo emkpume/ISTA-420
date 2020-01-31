@@ -1,0 +1,6 @@
+C:\Users\christy\Desktop\math operators\math operators\obj\Debug\netcoreapp3.1\math operators.csprojAssemblyReference.cache
+C:\Users\christy\Desktop\math operators\math operators\obj\Debug\netcoreapp3.1\math operators.AssemblyInfoInputs.cache
+C:\Users\christy\Desktop\math operators\math operators\obj\Debug\netcoreapp3.1\math operators.AssemblyInfo.cs
+C:\Users\christy\Desktop\MSSA\math operators\math operators\obj\Debug\netcoreapp3.1\math operators.csprojAssemblyReference.cache
+C:\Users\christy\Desktop\MSSA\math operators\math operators\obj\Debug\netcoreapp3.1\math operators.AssemblyInfoInputs.cache
+C:\Users\christy\Desktop\MSSA\math operators\math operators\obj\Debug\netcoreapp3.1\math operators.AssemblyInfo.cs

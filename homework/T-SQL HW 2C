@@ -1,0 +1,100 @@
+
+# **Name : Emeka Mkpume**
+
+## **Files: T-SQL HW 2C**
+
+### **Date: January 27, 2020**
+
+1. List the date/time types in T-SQL.
+
+T-SQL supports six date and time data types:
+two legacy types called DATETIME and SMALLDATETIME, and
+four later additions called DATE, TIME, DATETIME2, and DATETIMEOFFSET.
+
+2. How do you express a date/time literal in T-SQL?
+
+When you need to specify a literal (constant) of a date and time data type,
+ you should consider several things
+ (a).  T-SQL doesn’t provide the means to express a date and time literal; instead,
+ you can specify a literal of a different type that can be converted—explicitly or 
+ implicitly.
+ (b). Another option is to use the PARSE function. By using this function, you can
+ parse a value as a requested type and indicate the culture.
+ (c) use a strig Format.
+ 
+3. What is the setting DATEFORMAT used for?
+
+The DATEFORMAT setting may interpret character strings differently for date data types,
+ depending on their string format.
+ 
+4. Wriite a T-SQL snippet changing the date format to German.
+ Read the documentation on how to do this.
+ 
+ a. To explicitly specify that a date should be displayed in German format, 
+ use de-de as the third argument.
+ DECLARE @thedate date = '2020-12-01'
+SELECT FORMAT(@thedate, 'd', 'de-de') Result;
+ b. You can change the second argument to an uppercase D to result in a longer
+ date format, with the month spelled out:
+ DECLARE @thedate date = '2020-12-01'
+SELECT FORMAT(@thedate, 'D', 'de-de') Result;
+ c.You can also use a custom date format if required. This allows you to 
+ explicitly state exactly how and where each date component goes.
+ DECLARE @thedate date = '2020-12-01'
+SELECT FORMAT(@thedate, 'ddd, d. MMM, yyyy', 'de-de') Result;  
+ 
+5. What is the diﬀerence between CAST(), CONVERT(), and PARSE()?
+
+The CAST, CONVERT, and PARSE functions are used to convert an input value 
+to some target type. If the conversion succeeds, the functions return the
+ converted value; otherwise, they cause the query to fail. The three functions
+ have counterparts called TRY_CAST, TRY_CONVERT, and TRY_PARSE, respectively.
+ Each version with the prefix TRY_ accepts the same input as its counterpart
+ and applies the same conversion; the difference is that if the input isn’t
+ convertible to the target type, the function returns a NULL instead of failing
+ the query.
+ the following are examples of how we use the three.
+ SELECT CAST(SYSDATETIME() AS TIME);
+ SELECT CONVERT(DATETIME, CONVERT(CHAR(8), CURRENT_TIMESTAMP, 112), 112);
+ SELECT CONVERT(CHAR(12), CURRENT_TIMESTAMP, 114);
+ SELECT PARSE('02/12/2016' AS DATETIME USING 'en-US');
+ SELECT PARSE('02/12/2016' AS DATETIME USING 'en-GB');
+ 
+
+
+6. What function returns the current date? This is very useful in a table
+ that maintains a log of events, such as user logins.
+ 
+ GETDATE();
+ 
+7. How do you add one day to the current date? Add one week? Add one month? Add one year?
+DATEADD(<Unit of time>, <Units>, <Date>)
+eg. DATEDAY(DAY, 1, '01/27/2020'); OR select DateAdd(day, 1, GetDate());
+SELECT DATEADD(WEEK,1,@Date);
+SELECT DATEADD(MM,1,@Date);
+SELECT DATEADD(YYYY,1,@Date);
+
+
+8. Write a SQL snippet to return the number of years between your birth date and today’s date.
+
+select DateDiff(d,'1988-09-03', getDate());
+select (julianDay
+
+9. How do you check a string literal to see if it represents a valid date?
+
+select IsDate('1988-03-09');
+
+10. What does EOMONTH() do? Give an example of why this might be very useful.
+
+use to display the last day of the given period. 
+it keep us from having to know how many days in a month.
+
+The EOMONTH Function is categorized under Excel Date/Time functions. 
+The function helps to calculate the last day of the month after adding 
+a specified number of months to a date.
+
+11. Payments are due exactly 30 days from the date of the last function. Write a select query that
+ calculates the date of the next payment. Pretend we want to update a column in a database that
+ contains the date of the next payment. We will do this when we write UPDATE queries.
+12. Suppose your son or daughter wants to run a query every day that tells them the number of days until their 16th birthday. Write a select query that does this.
+ 

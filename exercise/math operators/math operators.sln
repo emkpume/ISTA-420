@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "math operators", "math operators\math operators.csproj", "{DB088736-FDEA-4D85-9352-DC5ADA4FEFE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB088736-FDEA-4D85-9352-DC5ADA4FEFE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB088736-FDEA-4D85-9352-DC5ADA4FEFE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB088736-FDEA-4D85-9352-DC5ADA4FEFE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB088736-FDEA-4D85-9352-DC5ADA4FEFE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F165FDC9-D11C-4F89-AF02-F9DAD3476393}
+	EndGlobalSection
+EndGlobal

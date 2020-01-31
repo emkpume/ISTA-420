@@ -1,0 +1,25 @@
+.echo on
+.headers on
+
+--Name : Emeka Mkpume
+--Script : emekafamily.sql
+--date : January 14, 2020
+
+drop table if exists emekafamily;
+
+create table emekafamily (
+	id integer primary key,
+	name text,
+	sex integer,
+	role text
+);
+	insert into emekafamily values (1, 'Emeka Mkpume', 1, 'parent');
+	insert into emekafamily values (2, 'Peace Mkpume', 0, 'parent');
+	insert into emekafamily values (3, 'Ephraim Mkpume', 1, 'child');
+	insert into emekafamily values (4, 'Adaeze Mkpume', 0, 'child');
+	insert into emekafamily values (5, 'kanu Mkpume', 1, 'child');
+	insert into emekafamily values (6, 'Jordynn Mkpume', 0, 'child');
+	
+	select * from emekafamily;
+	
+	

@@ -1,0 +1,106 @@
+# **EMEKA MKPUME**
+
+## **T-SQL HOMEWORK 1**
+
+### **January 14, 2020**
+
+
+1. Declarative programming is when you say what you want, and imperative language is when you say how to get what you want
+
+2.The three categories of command statements are 
+a. data definition language e.g. CREATE,ALTER,DROP
+b. data manipulation language e.g. SELECT,INSERT,MERGE, DELETE, TRUNCATE
+c. data control language e.g. GRANT, REVOKE
+
+3. A database is an organized collection of data, generally stored and accessed electronically from a computer system
+The Human Resources database is where transactions relating to payroll processing, position management, time and attendance, 
+recruitment, benefits, and other human resources data collection protocols are recorded, stored and retrieved in a variety of ways.
+
+4. SQL uses a three-valued logic: besides true and false, the result of logical expressions can also be unknown.
+ SQL's three valued logic is a consequence of supporting null to mark absent data. If a null value affects the result of a logical expression, 
+the result is neither true nor false but unknown.
+
+5. To enforce entity integrity, SQL lets you define the PRIMARY KEY and UNIQUE specifications.
+ A table can only have one primary key, but several unique indexes.
+ That is, you can define the PRIMARY KEY specification for one of the candidate keys, and UNIQUE for the rest of them.
+   Entity integrity is concerned with ensuring that each row of a table has a unique and non-null primary key value;
+ this is the same as saying that each row in a table represents a single instance of the entity type modelled by the table. 
+Entity Integrity ensures two properties for primary keys: The primary key for a row is unique; it does not match the primary key of any other row in the table.
+
+6.A REFERENTIAL INTEGRITY is a database concept that is used to build and maintain logical relationships between tables to avoid logical corruption of data. 
+Usually, referential integrity is made up of the combination of a primary key and a foreign key.
+ SQL Server uses the referential integrity constraint to ensure that data in one table points to data in another table—and doesn't point to data that doesn't exist. 
+SQL Server uses constraints, triggers, rules, and defaults to enforce referential integrity.
+
+7. relation means representation of a set.
+
+8. The first normal form says that the tuples (rows) in the relation (table) must be unique and attributes should be atomic (non divisable). 
+If a table truly represents a relation, it is already in first normal form. the table is not in the first normal form.  
+the second column has different characters (different degrees that can be separated into different column or tables) that can be separated into another table or column. 
+
+Fac ID ||    facName        ||     facCred
+1      ||  Alan Alda        ||     BA, MA
+2      ||Bridget, Bardot    ||     BS, MS, PHD
+3      ||Casey, Cason       ||     AA, BBA, MBA, DED
+
+      Create Table Faculty (
+             FacID int primary key,
+             FacFirstName text,
+             FacLastName text)
+
+      Create Table Credential (
+             CredID int primary key,
+             CredType text)
+
+      Create Table FacCred (
+             FacID int foreign key,
+             CredID int foreign key)
+
+9. The second normal form involves two rules. one rule is that the data must meet the first normal form. 
+The second rule addresses the relationship between nonkey and candidate key attributes. 
+The table is not in the second normal form. 
+OWNER ID ||  pet ID  ||   owner first name ||  owner last name ||  petName   ||   petType
+1        ||   1      ||    Dom             ||    Delouise      ||    Rex     ||   German-Shepard
+1        ||   2      ||    Dom             ||    Delouise      ||   Lecy     ||    Border-Collie
+2        ||   3      ||    Emilio          ||    Estevez       ||   Midnight ||   Persian-Cat
+
+you have two primary key (owner ID and pet ID)and you only need one. 
+Every nonkey column depends on the entire primary key. I will break the table into two. 
+one with a primary key and the second with a foreign key that is tied to the priamry key.
+ the command will look like this
+
+       Create table owner (
+             OwnerID int primary key,
+             OwnerFirstname text,
+             OwnerLastname text)
+       
+       Create table pet (
+              PetID int primary key,
+              PetName text,
+              PetType text,
+              OwnerID int foreign Key)
+
+10. The third normal form has two rules. the data must meet the second normal form and also nonkey attributes must be dependent on candidate keys nontransitively.
+one nonkey attributes cannot be dependent on another non key attribute. this table is not in third non form.
+
+ID   || FirstName  ||  LastName  ||     Street             ||    City     || state ||  Zip ||
+1    ||  Fred      ||  Flintstone||123 Rock Quarry Rd      || Bedrock     || GA    || 31905||
+2    ||  Greta     ||  Garbo     ||456 Starlit Ave         || Paris       || FL    || 30019||
+3    ||   Harry    ||  Houdini   ||789 Hidden Glen Lane    || Alcatraz    || CA    || 00000||
+
+every nonkey column is unique and they rely on a primary key. if you know the zip code, you can know the city and state. 
+if somebody moves, you will have to change the city, state and zip code. 
+I will create another table with the zip code being the primary key and the city and state being the non key column.
+
+11. They are  a.Encapsulation
+              b. Data Abstraction 
+              c. Polymorphism 
+              d. Inheritance. 
+These are also called as four pillars of Object Oriented Programming (OOP).
+
+12.Declarative Data integrity is enforced within the database using constraint, rules, and defaults. 
+This is the preferred method of enforcing integrity as it has low overhead and is programmatically simple. 
+it is more centrally managed and consistently enforced because it resides in the database.
+procedural data integrity is enforced with stored procedures, triggers, and application code. 
+procedural integrity generally has a higher overhead and can be quite complex, but it can enforce far more extensive business rule than declarative integrity. 
+it should be implemented to complement but not replace, declarative integrity.

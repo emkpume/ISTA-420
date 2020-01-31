@@ -1,0 +1,85 @@
+
+# **EMEKA MKPUME**
+
+## **JANUARY 2020**
+
+### **HOMEWORK 2a: T-SQL QUERY FUNDAMENTALS**
+
+1.List the order of execution of a SQL query
+
+ order in which query clause are logically processed are as follows
+a. FROM
+b. WHERE
+c. GROUP BY
+d. HAVING
+e. SELECT
+f. ORDER BY.
+
+2.What does the 'form' clause do ?
+
+The FROM clause is the very first query that is logically processed.
+ in this clause, you specify the names of the tables you want to query and
+ table operators that operates on those tables. 
+
+3.what does the 'where' clause do ?
+
+ In the WHERE clause, you specify a predicate or logical expression to filter
+ the rows returned by the FROM phase.only rows for which the logical expression
+ evaluates to TRUE are returned by the WHERE phase to the subsequent logical
+ query processing phase.
+ 
+4.what does the 'group by' clause do ?
+
+ You can use the GROUP BY phase to arrange the rows returned by the previous
+ logical query processing phase in groups. the groups are determined by the
+ elements you specify in the group by clause. Group records into a number of distinct groups.
+
+5.what does the 'having' clause do ?
+
+Previously, we define the WHERE clause as a row filter, the HAVING clause
+ is a group filter. Only groups for which the HAVING predicate evaluates to
+ TRUE are returned by having Phase to the next logical query processing phase.
+
+6.What does the 'select' clause do ?
+
+the purpose of the SELECT statement is to query table, apply some logical
+ manipulation and return a result. The SELECT CLAUSE is where you specify 
+the attributes you want to return in the result table of the query. 
+you base the expressions in the SELECT list on attributes from the
+ queried tables, with or without further manipulation.
+
+7.What does the distinct keyword do ?
+
+The DISTINCT clause is used in the SELECT statement to remove duplicate 
+rows from a result set. The DISTINCT clause keeps one row for each group 
+of duplicates. The DISTINCT clause can be used on one or more columns of a table.
+ The SELECT DISTINCT statement is used to return only distinct (different) values.
+ Inside a table, a column often contains many duplicate values;
+ and sometimes you only want to list the different (distinct) values
+
+8. what does the order by clause do ?
+
+ You use the ORDER BY clause to sort the rows in the output for presentation purposes. 
+in terms of logical query processing, ORDER BY is the very last clause to be processed. 
+
+9. what does the limit clause do ?
+
+The LIMIT clause is used to set an upper limit on the number of tuples returned by SQL. 
+It is important to note that this clause is not supported by all SQL versions. 
+The SQL SELECT LIMIT statement is used to retrieve records from one or more tables 
+in a database and limit the number of records returned based on a limit value. ...
+ For databases such as SQL Server or MSAccess, use the SELECT TOP statement to limit your results.
+
+10.what does the top clause do ?
+
+The SELECT TOP clause is used to specify the number of records to return.
+ The SELECT TOP clause is useful on large tables with thousands of records. 
+Returning a large number of records can impact performance.
+ Note: Not all database systems support the SELECT TOP clause.
+
+11.what do the ofset...fetch.....clause do ?
+
+ the TOP filter is very practical, but it has two shortcomings-- 
+it's not standard, and it doesnt support a skipping capability. 
+T-SQL also supports a standard, TOP-like filter called OFFSET-FETCH, 
+which does support a skipping option. this makes it very useful for ad-hoc paging purposes.

@@ -1,0 +1,57 @@
+.echo on
+.headers on
+
+--Name : Emeka Mkpume
+--Files: T-SQL EXERCISE 2
+--Date: January 27, 2020
+
+--1.Mailing Labels.
+-- Title Firstname Lastname
+-- companyname
+--street address
+--city state zip country
+--[blank line]
+--[blank line]
+
+select contactTitle || " " || contactName || "
+   ...> " || companyName || "
+   ...> " || Address || "
+   ...> " || "
+   ...> " || "
+   ...> | " from suppliers;
+
+
+--2. create a Telephone Book for customer representative
+--Lastname, Firstname Middlename [tab] company name [tab] phonenumber
+
+ select contactName, "    "  , companyName, "    " ,Phone, "    " from customers;
+ 
+ --To re-arrenged in Lastname, FirstName MiddleName company name amd phone number, use this 
+ 
+ select substr(ContactName, instr(ContactName, " ") + 1) || " , " || substr(ContactName, 1, instr(ContactName, " ")) || char(9) || CompanyName || Char(9) || Phone from Customers;
+
+--3. shipping lag report
+-- four column: the order number, the order date, the shipped date, and the difference in days between the order date and the shipped date.
+
+select OrderID || "    " || ShippedDate || "    " || OrderDate, julianday(ShippedDate) - julianday(OrderDate) as Diff_in_Days from Orders where Diff_in_Days > 0;
+
+--4.Your Age
+--how old are you today in years, months, weeks, and days today ? 00:00:00.
+
+--Age in years
+select julianday('now') - julianday('1988');
+
+select (julianday('now') - julianday('1988-09-03'))/365;
+
+--Age in days. 
+select julianday('now') - julianday('1988-09-03');
+
+--Age in seconds
+select strftime('%s','now') - strftime('%s','1988-09-03 14:00:00');
+
+
+
+
+
+
+

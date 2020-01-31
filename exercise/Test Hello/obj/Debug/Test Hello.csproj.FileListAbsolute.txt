@@ -1,0 +1,6 @@
+C:\Users\christy\Desktop\Test Hello\obj\Debug\Test Hello.csprojAssemblyReference.cache
+C:\Users\christy\Desktop\Test Hello\bin\Debug\Test Hello.exe.config
+C:\Users\christy\Desktop\Test Hello\bin\Debug\Test Hello.exe
+C:\Users\christy\Desktop\Test Hello\bin\Debug\Test Hello.pdb
+C:\Users\christy\Desktop\Test Hello\obj\Debug\Test Hello.exe
+C:\Users\christy\Desktop\Test Hello\obj\Debug\Test Hello.pdb

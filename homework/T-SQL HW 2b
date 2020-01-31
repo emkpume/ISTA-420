@@ -1,0 +1,28 @@
+# **EMEKA MKPUME**
+
+## **JANUARY 21, 2020**
+
+### **HOMEWORK 2b: T-SQL QUERY FUNDAMENTALS**
+
+1. What is data type ? why do we have data types?
+
+SQL Server supports two kinds of character data types: regular and Unicode.
+ Regular data types  include CHAR and VARCHAR, and Unicode data types include
+ NCHAR and NVARCHAR. Regular  characters use 1 byte of storage for each
+ character, whereas Unicode data requires 2 bytes per character, and in cases
+ in which a surrogate pair is needed, 4 bytes are require
+2. what is a collation ? Name four elements of a collation.
+3. How would you strip whitespace froma  string ? for example, 
+suppose you had "...Dave...." but wanted only "dave".
+4. suppose you wanted to make a list of every college and university
+ that was called an institute from the college table. write the query
+5. How would you find the number of the index of the first space in a 
+string ? for example the index of the first space in "Barack Hussein Obama" would be 7.
+6.How would you select just the first name in a list of the presidents.
+ Each record looks like the "George Washington","John Adams","Thomas Jefferson".
+ First names can be an arbitarry length from "cal" to "Benjamin." (e.g. Cal College, Benjamin Harrison).
+7. What is the order of precedence for the logical operators ?
+8. What is the order of precedence for the math operators?
+9. What is the difference between a simple and a searched CASE expression ?
+10. How would you turn a list of names like this: "LASTNAME FIRSTNAME", to a "FIRSTNAME LASTNAME"?
+11. How would you turn a list of names like this: "FIRSTNAME LASTNAME", to a list like this "LAST-NAME, FIRSTNAME"?

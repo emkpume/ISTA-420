@@ -1,0 +1,46 @@
+.headers on
+
+--Name : Emeka Mkpume
+--Script: hair.sql
+--date : January 20, 2020
+
+drop table if exists hair;
+
+create table hair(
+id integer primary key,
+hair_name  text,
+hair_cost integer,
+hair_color text,
+hair_Texture text,
+hair_expiry_year integer
+);
+insert into hair  values (1,'indian',100,'black','soft',2020);
+insert into hair values (2,'Peruvian',110,'brown','smooth',2021);
+insert into hair values (3,'columbian',120,'peach','silky',2030);
+insert into hair  values (4,'Brazilian',200,'orange','luxurious',2020);
+insert into hair values (5,'jamaican',300,'blue','creamy',2025);
+
+select * from hair;
+id|hair_name|hair_cost|hair_color|hair_Texture|hair_expiry_year
+1|indian|100|black|soft|2020
+2|Peruvian|110|brown|smooth|2021
+3|columbian|120|peach|silky|2030
+4|Brazilian|200|orange|luxurious|2020
+5|jamaican|300|blue|creamy|2025
+select * from hair where hair_name like 'indian';
+id|hair_name|hair_cost|hair_color|hair_Texture|hair_expiry_year
+1|indian|100|black|soft|2020
+select * from hair where hair_name like 'peruvian';
+id|hair_name|hair_cost|hair_color|hair_Texture|hair_expiry_year
+2|Peruvian|110|brown|smooth|2021
+select * from hair where hair_name like 'columbian';
+id|hair_name|hair_cost|hair_color|hair_Texture|hair_expiry_year
+3|columbian|120|peach|silky|2030
+select * from hair where hair_name like 'Brazilian';
+id|hair_name|hair_cost|hair_color|hair_Texture|hair_expiry_year
+4|Brazilian|200|orange|luxurious|2020
+select * from hair where hair_name like 'jamaican';
+id|hair_name|hair_cost|hair_color|hair_Texture|hair_expiry_year
+5|jamaican|300|blue|creamy|2025
+
+
