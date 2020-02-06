@@ -1,0 +1,103 @@
+-- Name: Emeka Mkpume
+--File: sql-lab4.sql
+--Date: Febuary 3, 2020
+
+--use TSQLV4
+--1. What is our highest priced product? Report the product id, product name, and unit price.
+--Use a self-contained, scalar valued subquery
+
+select productid, productName, unitPrice
+from production.products;
+
+select max(unitPrice)
+from production.products;
+
+select productid, productName, unitPrice
+	from production.products
+	where unitprice = 
+	(select max(unitprice) from production.products);
+go
+
+--2. What is our most popular product in terms of quantity sold?
+--Report the product name and productid. Use a self-contained, scalar valued subquery.
+select TOP (1000) [OrderID]
+		,[productid]
+		,[unitprice]
+		,[qty]
+		,[discount]
+	FROM [TSQLV4].[sales].[OrderDetails]
+
+select top 1 productid
+	FROM sales.OrderDetails
+	group by productid
+	order by sum(qty) desc;
+	
+-- to clean it up and simplify, i will use the code below.
+
+	select productid, productname
+		from production.products
+		where productid = (
+		select top (1) productid
+		from sales.orderDetails
+		group by productid
+		order by sum(qty) desc);
+
+--3. Who is our top salesperson overall?
+--Include the employee id, title, first name, and last name.
+--Use a self-contained, scalar valued subquery
+
+select empid, title, firstname, lastname
+	from HR.employees
+	where empid = (
+       select top (1) empid
+	from sales.orders
+	group by empid
+	order by count(orderId) desc);
+
+--4. I want to examine the individual orders.
+--Specifically, I want to look at each order and compare the
+--total of each order line 
+--with the average total of all order lines in the order.
+--Report the order id, the total of each order line, and the average of all order lines for each order. 
+--Use a correlated, scalar valued subquery.
+
+select TOP (1000) [orderid]
+				,[productid]
+				,[unitprice]
+				,[qty]
+				,[discount]
+			from [TSQLV4].[sales].[orderDetails]
+
+select od.orderid, (od.unitprice * od.qty) as line_total, (
+	select avg(ood.unitprice * ood.qty)
+	from sales.orderDetails ood
+	where ood.orderid = od.orderid  
+	) as order_avg
+	from sales.orderDetails od;
+
+--5. What is the largest quantity ordered by a customer for every order? 
+--Report the order id, the productid, and the quantity ordered.
+--Use a correlated subquery in the WHERE clause
+
+select TOP (1000) [orderid]
+				,[productid]
+				,[unitprice]
+				,[qty]
+			from [TSQLV4].[sales].[orderDetails]
+
+select od.orderid, od.productid, (
+select max(ood.qty)
+	from sales.orderDetails ood
+	where ood.orderid = od.orderid) max_qty
+	from sales.orderDetails od;
+--to make sure that the output is only the max , we use
+	select od.orderid, od.productid, qty
+	from sales.orderDetails od
+	where qty = ( 
+	select max(ood.qty) from sales.orderDetails ood
+	where ood.orderid = od.orderid)
+	order by od.orderid;
+go
+
+
+

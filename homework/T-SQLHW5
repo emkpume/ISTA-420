@@ -1,0 +1,110 @@
+# *Emeka Mkpume*
+
+## *T-SQL HW5*
+
+### *Febuary 04, 2020*
+
+1. What is a table expression? Can you give a technical definition of a table expression?
+
+A table expression is a named query expression that represents a valid relational table. 
+You can use able expressions in data-manipulation statements much like you use other
+ tables. T-SQL supports our types of table expressions: derived tables, common table 
+ expressions (CTEs), views, and inline able-valued functions (inline TVFs).
+ 
+2. In what SQL clause are derived tables (table valued subqueries) located?
+
+Derived tables (also known as table subqueries) are defined in the FROM clause
+ of an outer query. Their scope of existence is the outer query. As soon as the outer 
+ query is finished, the derived table is gone.
+ 
+3. Why can you refer to column aliases in an outer query that you defined in 
+an inner table valued subquery ?
+
+One of the benefits of using table expressions is that, in any clause of the outer query,
+ you can refer to olumn aliases that were assigned in the SELECT clause of the inner query.
+ This behavior helps you get round the fact that you can’t refer to column aliases assigned 
+ in the SELECT clause in query clauses hat are logically processed prior to the SELECT clause 
+ (for example, WHERE or GROUP BY).
+ 
+4. What SQL key word defines a common table expression?
+
+Common table expressions (CTEs) are another standard form of table expression similar to derived
+tables, yet with a couple of important advantages.
+CTEs are defined by using a WITH statement and have the following general form:
+WITH<CTE_Name>[(<target_column_list>)]
+AS
+(
+<inner_query_defining_CTE>
+)
+<outer_query_against_CTE>;
+
+5. When using common table expressions, can a subsequent derived table use a table alias declared in a
+preceding table expression?
+
+Derived tables (also known as table subqueries) are defined in the FROM clause of an outer query.
+ Their scope of existence is the outer query. As soon as the outer query is finished,
+ the derived table is gone.
+ 
+6. Can a main query refer to a previously defined common table expression by multiple aliases?
+
+One of the benefits of using table expressions is that in any clause of the outer query you .
+an refer to column aliases that were assigned in the SELECT clause of the inner query. 
+This helps you get around the fact that you can’t refer to column aliases assigned in the
+ SELECT clause in query clauses that are logically processed prior to the 
+ SELECT clause (for example, WHERE or GROUP BY).
+ 
+7. In SQL, is a view a durable object?
+
+Derived tables and CTEs have a single-statement scope, which means they are not reusable. Views
+and inline table-valued functions (inline TVFs) are two types of table expressions whose definitions are
+stored as permanent objects in the database, making them reusable. In most other respects, views and
+inline TVFs are treated like derived tables and CTEs.
+
+8. In a view, what does WITH CHECK OPTION do? Why is this important?
+
+The purpose of CHECK OPTION is to prevent modifications through the view that conflict with the
+view’s filter.
+
+9. In a view, what does SCHEMABINDING do? Why is this important?
+
+The SCHEMABINDING option is available to views and UDFs; it binds the schema of referenced objects
+and columns to the schema of the referencing object. It indicates that referenced objects cannot be
+dropped and that referenced columns cannot be dropped or altered.
+
+10. What is a table valued function TVF ?
+
+A table-valued function is a user-defined function that returns data of a table type. 
+The return type of a table-valued function is a table, therefore, you can use 
+the table-valued function just like you would use a table.
+
+Inline TVFs are reusable table expressions that support input parameters. In most respects, except for
+the support for input parameters, inline TVFs are similar to views. For this reason, I like to think of inline
+TVFs as parameterized views, even though they are not formally referred to this way.
+
+11. What does the APPLY operator do?
+
+The APPLY operator is a powerful table operator. Like all table operators, APPLY is used in the FROM
+clause of a query. There are two supported types of APPLY: CROSS APPLY and OUTER APPLY. Like the
+JOIN table operator, APPLY performs its work in logical-query phases. CROSS APPLY implements only
+one logical-query processing phase, whereas OUTER APPLY implements two.
+
+12. What are the two forms of the APPLY operator? Give an example of each.
+
+The APPLY operator can take one of two forms: CROSS APPLY or OUTER APPLY. The CROSS APPLY operator 
+returns rows from the primary (outer) table only if the table-value function produces a result set.
+ That means, in the example above, an employee would be included in the returned data only if that
+ employee has held a specific position within the company. The OUTER APPLY form, on the other hand, 
+ returns all rows from the outer table, even if the function produces no results. So an employee 
+ would be listed even if that employee held no specific position.
+ 
+*********NOTE********
+A query must meet three requirements to be valid to define a table expression of any kind:
+1. Order is not guaranteed. A table expression is supposed to represent a relational table, 
+and the rows in a relational table have no guaranteed order. 
+2. All columns must have names. All columns in a table must have names; therefore, you must 
+assign column aliases to all expressions in the SELECT list of the query that is used
+ to define a table expression.
+ 3. All column names must be unique. All column names in a table must be unique; therefore,
+ a table expression that has multiple columns with the same name is invalid. 
+ This might happen when the query defining the table expression joins two tables,
+ and both tables have a column with the same name.

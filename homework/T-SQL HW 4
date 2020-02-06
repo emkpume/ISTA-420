@@ -1,0 +1,91 @@
+# *Emeka Mkpume*
+
+## *T-SQL HW 4*
+
+### *Febuary 03, 2020*
+
+1. In your own words, what is a subquery?
+
+A subquery is a parenthesized query enclosed within some outer SQL
+statement. Most queries are SELECTs, so this means that a subquery
+usually takes the form (SELECT ...), nested somewhere inside an expression.
+Queries return result sets, or Tables, and the values in such Tables can be
+used when the syntax of the outer expression calls for a value of the
+appropriate <data type>.
+e.g PROMPT, WHERE, GROUP, HAVING, ORDER BY
+the three types of subquery are scalar value subquery, list value subquery and
+table value subquery.
+
+2. In your own words, what is a self-contained subquery ?
+
+Subqueries is a feature where you want one query to operate on the
+result of another query. Subqueries are either self-contained or correlated.
+A self-contained subquery is independent of the outer query. 
+A scalar subquery returns a single value.
+in a self-query, you can run it completely by itself.
+
+3. In your own words, what is a correlated subquery?
+
+SQL Correlated Subqueries are used to select data from a table referenced
+in the outer query. The subquery is known as a correlated because the 
+subquery is related to the outer query.
+you cannot run it by itself because it depends on the outer query.
+
+4. Give an example of a subquery that returns a single value.
+ When would you use this kind of subquery?
+ 
+ Introducing a subquery with one of the six comparison operators
+(=, <>, <,<=, >, >=) is often useful. In such a case, the SQL expression
+preceding the operator evaluates to a single value, and the subquery 
+following the operator must also evaluate to a single value.
+
+5. Give an example of a subquery that returns multiple values.
+When would you use this kind of subquery?
+
+Multiple row subquery returns one or more rows to the outer SQL statement.
+You may use the IN, ANY, SOME, EXIST or ALL operator in outer query to handle a subquery
+that returns multiple rows.
+list value sub querries returns a column from a table.
+
+6. Give an example of a subquery that returns table values.
+ When would you use this kind of subquery?
+ 
+ A table subquery returns a table of one or more rows of one or more columns.
+ i will use a table value sub queries when i want to return a table column.
+ 
+7. What does the exists predicate do? Give an example.
+
+The EXISTS predicate evaluates to TRUE providing the subquery contains any rows,
+otherwise it evaluates to FALSE. ... This predicate does not evaluate to UNKNOWN.
+As in our case, the EXISTS predicate is generally used with correlated subqueries.
+That subquery type has an outer reference to the value in the main query.
+
+8. What happens if we use the not operator before a predicate? 
+Give an example.
+
+
+You can invert the sense of a predicate by placing the NOT unary operator before
+the predicate. The NOT unary operator only affects the predicate that immediately
+follows it. Predicates are evaluated in strict left-to-right order.
+
+9. When you use exists or not exists with respect to a row in a database,
+ does it return two or three values? Explain your answer.
+ 
+The EXISTS and NOT EXISTS operators merely test whether a subquery returns any rows.
+If it does, EXISTS is true and NOT EXISTS is false. The following statements show
+some trivial examples of these subqueries.
+The first returns 0 if the absence table is empty, the second returns 1:
+
+SELECT EXISTS (SELECT * FROM absence);
+SELECT NOT EXISTS (SELECT * FROM absence);
+
+10. How would you use a subquery to calculate aggregates? For example, 
+you want to calculate yearly sales of a product, and you also want to 
+keep a running sum of total sales. Explain how you would use
+a subquery to do this.
+
+The aggregate function is a Functions that evaluate all of the values of a column
+and return a single aggregate value.With the subquery approach, the aggregate is 
+calculated in the inner branch of the join, per each outer row separately. e.g. 
+SUM, AVG, COUNT, MAX, MIN, VARIANCE, VAR_SAMP, VAR_POP, STDDEV, STDDEV_SAMP,
+ STDDEV_POP —, LIST, %DLIST

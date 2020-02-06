@@ -1,0 +1,49 @@
+# *Emeka Mkpume*
+
+## *T-SQL HW5*
+
+### *Febuary 04, 2020*
+
+1. What is a table expression? Can you give a technical definition of a table expression?
+
+A table expression is a named query expression that represents a valid relational table. 
+You can use able expressions in data-manipulation statements much like you use other
+ tables. T-SQL supports our types of table expressions: derived tables, common table 
+ expressions (CTEs), views, and inline able-valued functions (inline TVFs).
+ 
+2. In what SQL clause are derived tables (table valued subqueries) located?
+
+Derived tables (also known as table subqueries) are defined in the FROM clause
+ of an outer query. Their scope of existence is the outer query. As soon as the outer 
+ query is finished, the derived table is gone.
+ 
+3. Why can you refer to column aliases in an outer query that you defined in 
+an inner table valued subquery ?
+
+One of the benefits of using table expressions is that, in any clause of the outer query,
+ you can refer to olumn aliases that were assigned in the SELECT clause of the inner query.
+ This behavior helps you get round the fact that you can’t refer to column aliases assigned 
+ in the SELECT clause in query clauses hat are logically processed prior to the SELECT clause 
+ (for example, WHERE or GROUP BY).
+ 
+4. What SQL key word defines a common table expression?
+
+Common table expressions (CTEs) are another standard form of table expression similar to derived
+tables, yet with a couple of important advantages.
+CTEs are defined by using a WITH statement and have the following general form:
+WITH<CTE_Name>[(<target_column_list>)]
+AS
+(
+<inner_query_defining_CTE>
+)
+<outer_query_against_CTE>;
+
+5. When using common table expressions, can a subsequent derived table use a table alias declared in a
+preceding table expression?
+6. Can a main query refer to a previously defined common table expression by multiple aliases?
+7. In SQL, is a view a durable object?
+8. In a view, what does WITH CHECK OPTION do? Why is this important?
+9. In a view, what does SCHEMABINDING do? Why is this important?
+10. What is a table valued function?
+11. What does the APPLY operator do?
+12. What are the two forms of the APPLY operator? Give an example of each.
